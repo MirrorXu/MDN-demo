@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+     function A(name) {
+         this.name = name
+//         this.valueOf = function () {
+//             return "实例的valueOf方法"
+//         }
+     }
+
+     A.sayName = function () {
+         console.log( "hi im A")
+     }
+
+//     A.prototype = { name:"A.prototype.name" }
+     A.prototype.name = "A.prototype.name";
+     A.prototype.valueOf = function () {
+         return  "A.prototype.name";
+     }
+
+
+     let a = new A("实例")
+
+
+    console.log(a)
+
+
+
+
+
+</script>
+</body>
+</html>

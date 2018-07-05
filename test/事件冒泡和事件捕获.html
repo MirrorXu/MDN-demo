@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .box1{
+            width: 400px;
+            height:400px;
+            background: slateblue;
+            padding: 50px;
+        }
+        .box2{
+            width: 100%;
+            height: 100%;
+            background: salmon;
+            padding: 50px;
+
+        }
+        .box3{
+            width: 100%;
+            height: 100%;
+            background: seagreen;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="box1">
+    <div class="box2">
+        <div class="box3">
+        </div>
+    </div>
+</div>
+
+<script>
+
+    // 事件冒泡  弹窗顺序为 "box3" -> "box2" -> "box1"
+
+//   window.onload = function () {
+//        var _alert = function () {
+//            var _this = this;
+//            console.log(_this)
+//            alert( _this.getAttribute('class') );
+//        }
+//
+//
+//        document.querySelector('.box1').onclick = _alert;
+//        document.querySelector('.box2').onclick = _alert;
+//        document.querySelector('.box3').onclick = _alert;
+//    }
+//
+
+    // 事件捕获  弹窗顺序为 "box1" -> "box2" -> "box3"
+    window.onload = function(){
+	    var _alert = function () {
+            var _this = this;
+            console.log(_this)
+            alert( _this.getAttribute('class') );
+        }
+
+
+        document.querySelector('.box1').addEventListener('click', _alert ,true );
+        document.querySelector('.box2').addEventListener('click', _alert , true);
+        document.querySelector('.box3').addEventListener('click', _alert , true );
+
+    }
+
+
+
+//    window.onload = function(){
+//	    var _alert = function () {
+//		    var _this = this;
+//		    console.log(_this)
+//		    alert( _this.getAttribute('class') );
+//	    }
+//
+//
+//	    document.querySelector('.box1').addEventListener('click', _alert );
+//	    document.querySelector('.box2').addEventListener('click', _alert);
+//	    document.querySelector('.box3').addEventListener('click', _alert );
+//
+//    }
+
+
+
+
+</script>
+
+</body>
+</html>
